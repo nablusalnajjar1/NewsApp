@@ -1,5 +1,3 @@
-C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\obj\Debug\FileworxObjects.csproj.AssemblyReference.cache
-C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\obj\Debug\FileworxObjects.csproj.CoreCompileInputs.cache
 C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\bin\Debug\FileworxObjects.dll.config
 C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\bin\Debug\FileworxObjects.dll
 C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\bin\Debug\FileworxObjects.pdb
@@ -7,6 +5,8 @@ C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\bin\Debug\E
 C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\bin\Debug\EntityFramework.xml
 C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\obj\Debug\FileworxObjects.csproj.AssemblyReference.cache
+C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\obj\Debug\FileworxObjects.csproj.CoreCompileInputs.cache
 C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\obj\Debug\FileworxObjects.csproj.CopyComplete
 C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\obj\Debug\FileworxObjects.dll
 C:\Users\Nablus\source\repos\nablusalnajjar1\NewsApp\FileworxObjects\obj\Debug\FileworxObjects.pdb
