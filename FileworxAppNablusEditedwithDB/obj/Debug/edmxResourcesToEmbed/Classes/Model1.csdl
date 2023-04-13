@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FileworxAppModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BusinessObject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LastModifier" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClassID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FXClass" Relationship="Self.FK_BusinessObject_Class" FromRole="BusinessObject" ToRole="FXClass" />
+  </EntityType>
+  <EntityType Name="FXCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FXnews" Relationship="Self.FK_FXnews_FXCategory" FromRole="FXCategory" ToRole="FXnews" />
+  </EntityType>
+  <EntityType Name="FXClass">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BusinessObjects" Relationship="Self.FK_BusinessObject_Class" FromRole="FXClass" ToRole="BusinessObject" />
+  </EntityType>
+  <EntityType Name="FXFile">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FXnew">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Category" Type="Int32" />
+    <NavigationProperty Name="FXCategory" Relationship="Self.FK_FXnews_FXCategory" FromRole="FXnews" ToRole="FXCategory" />
+  </EntityType>
+  <EntityType Name="FXPhoto">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FXUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_BusinessObject_Class">
+    <End Role="FXClass" Type="Self.FXClass" Multiplicity="1" />
+    <End Role="BusinessObject" Type="Self.BusinessObject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FXClass">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BusinessObject">
+        <PropertyRef Name="ClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FXnews_FXCategory">
+    <End Role="FXCategory" Type="Self.FXCategory" Multiplicity="0..1" />
+    <End Role="FXnews" Type="Self.FXnew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FXCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FXnews">
+        <PropertyRef Name="Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FileworxAppEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BusinessObjects" EntityType="Self.BusinessObject" />
+    <EntitySet Name="FXCategories" EntityType="Self.FXCategory" />
+    <EntitySet Name="FXClasses" EntityType="Self.FXClass" />
+    <EntitySet Name="FXFiles" EntityType="Self.FXFile" />
+    <EntitySet Name="FXnews" EntityType="Self.FXnew" />
+    <EntitySet Name="FXPhotoes" EntityType="Self.FXPhoto" />
+    <EntitySet Name="FXUsers" EntityType="Self.FXUser" />
+    <AssociationSet Name="FK_BusinessObject_Class" Association="Self.FK_BusinessObject_Class">
+      <End Role="FXClass" EntitySet="FXClasses" />
+      <End Role="BusinessObject" EntitySet="BusinessObjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FXnews_FXCategory" Association="Self.FK_FXnews_FXCategory">
+      <End Role="FXCategory" EntitySet="FXCategories" />
+      <End Role="FXnews" EntitySet="FXnews" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

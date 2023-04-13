@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FileworxAppModel1StoreContainer" CdmEntityContainer="FileworxAppEntities1">
+    <EntitySetMapping Name="BusinessObjects">
+      <EntityTypeMapping TypeName="FileworxAppModel1.BusinessObject">
+        <MappingFragment StoreEntitySet="BusinessObject">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="LastModifier" ColumnName="LastModifier" />
+          <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FXCategories">
+      <EntityTypeMapping TypeName="FileworxAppModel1.FXCategory">
+        <MappingFragment StoreEntitySet="FXCategory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FXClasses">
+      <EntityTypeMapping TypeName="FileworxAppModel1.FXClass">
+        <MappingFragment StoreEntitySet="FXClass">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FXFiles">
+      <EntityTypeMapping TypeName="FileworxAppModel1.FXFile">
+        <MappingFragment StoreEntitySet="FXFile">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FXnews">
+      <EntityTypeMapping TypeName="FileworxAppModel1.FXnew">
+        <MappingFragment StoreEntitySet="FXnews">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FXPhotoes">
+      <EntityTypeMapping TypeName="FileworxAppModel1.FXPhoto">
+        <MappingFragment StoreEntitySet="FXPhoto">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FXUsers">
+      <EntityTypeMapping TypeName="FileworxAppModel1.FXUser">
+        <MappingFragment StoreEntitySet="FXUsers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FileworxAppModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BusinessObject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CreationDate" Type="varchar(max)" />
+    <Property Name="LastModifier" Type="nvarchar(max)" />
+    <Property Name="ClassID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FXCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FXClass">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FXFile">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Body" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="FXnews">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Category" Type="int" />
+  </EntityType>
+  <EntityType Name="FXPhoto">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhotoPath" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FXUsers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FullName" Type="varchar(max)" />
+    <Property Name="Password" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_BusinessObject_Class">
+    <End Role="FXClass" Type="Self.FXClass" Multiplicity="1" />
+    <End Role="BusinessObject" Type="Self.BusinessObject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FXClass">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BusinessObject">
+        <PropertyRef Name="ClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FXnews_FXCategory">
+    <End Role="FXCategory" Type="Self.FXCategory" Multiplicity="0..1" />
+    <End Role="FXnews" Type="Self.FXnews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FXCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FXnews">
+        <PropertyRef Name="Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FileworxAppModel1StoreContainer">
+    <EntitySet Name="BusinessObject" EntityType="Self.BusinessObject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FXCategory" EntityType="Self.FXCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FXClass" EntityType="Self.FXClass" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FXFile" EntityType="Self.FXFile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FXnews" EntityType="Self.FXnews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FXPhoto" EntityType="Self.FXPhoto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FXUsers" EntityType="Self.FXUsers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BusinessObject_Class" Association="Self.FK_BusinessObject_Class">
+      <End Role="FXClass" EntitySet="FXClass" />
+      <End Role="BusinessObject" EntitySet="BusinessObject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FXnews_FXCategory" Association="Self.FK_FXnews_FXCategory">
+      <End Role="FXCategory" EntitySet="FXCategory" />
+      <End Role="FXnews" EntitySet="FXnews" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
